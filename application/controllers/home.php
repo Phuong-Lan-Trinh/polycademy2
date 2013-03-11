@@ -13,10 +13,9 @@ class Home extends CI_Controller{
 	}
 	
 	public function index(){
-	
-		echo 'Hello!';
 		
-		var_dump($this->config->item('ioc'));
+		//var_dump($lol);
+		//var_dump($dude);
 		
 		Template::compose('index', $this->view_data);
 	

@@ -65,8 +65,28 @@
 */
 
 Pigeon::map(function($r){
-
-	//$r->resources('posts');
+	
+	//STILL ONE MORE PROBLEM TO SOLVE, you need to figure out how to route the Robot requests and serve up proper html snapshots or do the year of moo thing...
+	
+	
+	//Route all API requests to the correct controller/method
+	$r->route('api', false, function($r){
+		
+		//phones resource RESTFUL AS SHIT!
+		$r->get('phones', 'phones/index');
+		$r->get('phones/(:any)', 'phones/show/$1');
+		$r->post('phones', 'phones/create');
+		$r->put('phones/(:any)', 'phones/update/$1');
+		$r->delete('phones/(:any)', 'phones/delete/$1');
+		
+		//migration comment these in production
+		$r->get('migrate', 'migrate/index');
+		$r->get('migrate/revert', 'migrate/revert');
+		
+	});
+	
+	//Route everything else to AngularJS, no parameters allowed!
+	$r->route('(.*)', 'home#index');
 	
 });
 
