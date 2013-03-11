@@ -5,7 +5,11 @@ Experiment of Single Page Apps and RESTful Routing. This will eventually ported 
 
 This seed also incorporates a Ratchet server allowing web socket connections. Eventually it will have GearmanD or PHP-Resque too.
 
-Future plans include Phing xml build file.
+Todo:
+
+Incorporate Phing XML builds file
+Incorporate Behat Feature Tests + PHPunit unit tests
+Incorporate REST server content negotiation style
 
 Updated from:
 
