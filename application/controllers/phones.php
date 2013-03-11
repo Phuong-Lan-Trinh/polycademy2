@@ -28,13 +28,13 @@ class Phones extends CI_Controller{
 			),
 			array(
 				'age'	=> 3,
-				'id'	=> 'motorola-xoom-with-wi-fi',
+				'id'	=> 'anotherone',
 				'name'	=> 'Motorola XOOM\u2122 with Wi-Fi',
 				'desc'	=> 'Blah blah blah',
 			),
 			array(
 				'age'	=> 4,
-				'id'	=> 'motorola-xoom-with-wi-fi',
+				'id'	=> 'one-specific',
 				'name'	=> 'Motorola XOOM\u2122 with Wi-Fi',
 				'desc'	=> 'Blah blah blah',
 			),
@@ -48,5 +48,30 @@ class Phones extends CI_Controller{
 		Template::compose(false, $this->phones, 'json');
 	
 	}
+	
+	public function show($id){
+	
+		$output = '';
+		
+		foreach($this->phones as $item){
+			if($id == $item['id']){
+				$output = $item;
+				break;
+			}
+		}
+		
+		if(!$output){
+			$output = array('message' => 'No phone with that id');
+		}
+		
+		Template::compose(false, $output, 'json');
+	
+	}
+	
+	public function create(){}
+	
+	public function update(){}
+	
+	public function delete(){}
 
 }
