@@ -19,3 +19,7 @@ CiTemplating 1.0.3
 CiAutoloading
 
 Check Composer for all major dependencies
+
+ALL PACKAGES UPDATED AS OF:
+
+12th March 2013
