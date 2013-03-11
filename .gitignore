@@ -1,0 +1,10 @@
+*/config/development
+*/logs/log-*.php
+*/logs/!index.html
+*/cache/*
+*/cache/!index.html
+vendor/*
+bin/*
+.c9revisions/*
+#uncomment this if you don't want to pass around CI Sparks
+# tools/*
