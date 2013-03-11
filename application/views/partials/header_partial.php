@@ -2,7 +2,7 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" ng-app="myApp"> <!--<![endif]-->
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -21,6 +21,9 @@
 		<![endif]-->
 		<header>
 			<div class="container">
-				<h1>WASS UP DUDE!</h1>
+				<ul class="menu">
+					<li><a href="#/view1">view1</a></li>
+					<li><a href="#/view2">view2</a></li>
+				</ul>
 			</div>
 		</header>

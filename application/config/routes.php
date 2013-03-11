@@ -86,7 +86,9 @@ Pigeon::map(function($r){
 	});
 	
 	//Route everything else to AngularJS, no parameters allowed!
-	$r->route('(.*)', 'home#index');
+	$r->route('(.*)', 'home#index'); //THIS ONE IS CAUSING A BUG, infinite partial requests due to constant redirection (the relative requests for partials are incorrect) (its fixed now, due to the fixing of the base_url to the javascript code!)
+	//$r->route('(:any)', 'home#index');
+	//$r->route('(:any)/(:any)', 'home#index');
 	
 });
 
