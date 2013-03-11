@@ -6,5 +6,3 @@
 vendor/*
 bin/*
 .c9revisions/*
-#uncomment this if you don't want to pass around CI Sparks
-# tools/*
