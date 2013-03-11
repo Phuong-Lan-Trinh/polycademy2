@@ -39,7 +39,8 @@
 | path to your installation.
 |
 */
-$config['base_url'] = ($_SERVER['SERVER_PORT'] == 443 ? 'https' : 'http') . "://{$_SERVER['HTTP_HOST']}/";
+$config['base_url'] = '';
+//$config['base_url'] = ($_SERVER['SERVER_PORT'] == 443 ? 'https' : 'http') . "://{$_SERVER['HTTP_HOST']}/" //when you need SSL
 
 /*
 |--------------------------------------------------------------------------
