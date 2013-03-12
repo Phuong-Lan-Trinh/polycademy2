@@ -1614,16 +1614,16 @@
         },
         {
             "name": "polycademy/citemplating",
-            "version": "1.0.3",
+            "version": "1.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Polycademy/CiTemplating.git",
-                "reference": "1.0.3"
+                "reference": "1.0.5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Polycademy/CiTemplating/zipball/1.0.3",
-                "reference": "1.0.3",
+                "url": "https://api.github.com/repos/Polycademy/CiTemplating/zipball/1.0.5",
+                "reference": "1.0.5",
                 "shasum": ""
             },
             "type": "library",
@@ -1641,7 +1641,7 @@
                 "codeigniter",
                 "templating"
             ],
-            "time": "2013-02-17 07:10:44"
+            "time": "2013-03-12 05:22:57"
         },
         {
             "name": "react/event-loop",

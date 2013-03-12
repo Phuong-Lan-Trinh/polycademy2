@@ -1,29 +1,28 @@
 'use strict';
 
-
 // Declare app level module which depends on filters, and services
-angular.module('myApp', ['myApp.filters', 'myApp.services', 'myApp.directives'])
+angular.module('App', ['App.controllers', 'App.filters', 'App.services', 'App.directives'])
 	.config(
 		[
 			'$routeProvider',
 			function($routeProvider) {
 				$routeProvider.when(
-					'/view1',
+					'/',
 					{
-						templateUrl: base_url + 'partials/partial1.html',
-						controller: MyCtrl1
+						templateUrl: 'home_index.html',
+						controller: 'HomeCtrl'
 					}
 				);
 				$routeProvider.when(
-					'/view2',
+					'/blog',
 					{
-						templateUrl: base_url + 'partials/partial2.html',
-						controller: MyCtrl2
+						templateUrl: 'blog_index.html',
+						controller: 'BlogCtrl'
 					}
 				);
 				$routeProvider.otherwise(
 					{
-						redirectTo: '/view1'
+						redirectTo: '/'
 					}
 				);
 			}

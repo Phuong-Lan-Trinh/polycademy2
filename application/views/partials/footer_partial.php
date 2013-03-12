@@ -4,6 +4,10 @@
 			</div>
 		</footer>
 		
+		<!-- Client Side Templates -->
+		<? Template::partial('home/home_index') ?>
+		<? Template::partial('blog/blog_index') ?>
+		
 		<!-- Pass in PHP variables to Javascript -->
 		<script>
 			var base_url = '<?= base_url() ?>';
