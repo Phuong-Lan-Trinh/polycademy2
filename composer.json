@@ -16,7 +16,8 @@
 		"polycademy/citemplating": "*",
 		"jamierumbelow/pigeon": "*",
 		"firephp/firephp-core": "dev-master",
-		"hybridauth/hybridauth": "dev-master"
+		"hybridauth/hybridauth": "dev-master",
+		"Respect/Validation": "*"
     },
     "config": {
         "bin-dir": "bin/"

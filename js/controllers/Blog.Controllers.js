@@ -41,10 +41,56 @@ angular.module('Blog.Controllers.Index', [])
 						phoneId: 'some random',
 						phoneName: 'Awesome Phone',
 						phoneDesc: 'Yippee!'
+					},
+					function(response){
+						//success
+						console.log(response.status);
+						
 					}
 				);
+				
+				// BlogDataServ.update(
+					// {id: 'one-specific'},
+					// {
+						// phoneAge: '4',
+					// },
+					// function(response){
+						// console.dir(response, 'delete');
+					// }
+				// );
+				
+				// BlogDataServ.remove(
+					// {id: 'one-specific'},
+					// {},
+					// function(response){
+						// console.dir(response, 'delete');
+					// }
+				// );
 			
-			};		
+			};
+			
+			$scope.submitForm = function(){
+				//console.log(this.phoneForm);
+				
+				for(var key in this.phoneForm){
+					if(!this.phoneForm.hasOwnProperty(key)) continue; //check if the key is part of the object directly, not prototype
+					console.log(key);
+					console.log(this.phoneForm[key]);
+				}
+				
+				// BlogDataServ.save(
+					// {},
+					// {
+						// phoneAge: this.phoneForm.age, //these are from the phoneForm.age model!
+						// phoneId: this.phoneForm.id,
+						// phoneName: this.phoneForm.name,
+						// phoneDesc: this.phoneForm.desc
+					// },
+					// function(response){
+						// console.dir(response);
+					// }
+				// );
+			};
 			
 		}
 	]);

@@ -1,6 +1,124 @@
 {
-    "hash": "1409db2a1992a77a5a566f17fc0010ed",
+    "hash": "078f7efe98f7072f4ef50745ff2be1ba",
     "packages": [
+        {
+            "name": "Respect/Validation",
+            "version": "0.4.4",
+            "source": {
+                "type": "git",
+                "url": "git://github.com/Respect/Validation.git",
+                "reference": "0.4.4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/Respect/Validation/archive/0.4.4.zip",
+                "reference": "0.4.4",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Respect\\Validation": "library/"
+                }
+            },
+            "notification-url": "http://packagist.org/downloads/",
+            "license": [
+                "BSD Style"
+            ],
+            "authors": [
+                {
+                    "name": "Henrique Moody",
+                    "email": "henriquemoody@gmail.com",
+                    "homepage": "http://henriquemoody.com/"
+                },
+                {
+                    "name": "Alexandre Gaigalas",
+                    "email": "alexandre@gaigalas.net"
+                },
+                {
+                    "name": "Augusto Pascutti",
+                    "email": "contato@augustopascutti.com"
+                },
+                {
+                    "name": "Alexandre (@alganet)",
+                    "email": "alganet@alganet-laptop.(none)"
+                },
+                {
+                    "name": "Alexandre Gaigalas",
+                    "email": "alganet@alganet-workstation.(none)"
+                },
+                {
+                    "name": "Carlos André Ferrari",
+                    "email": "andre@andre.(none)"
+                },
+                {
+                    "name": "Carlos André Ferrari",
+                    "email": "caferrari@gmail.com"
+                },
+                {
+                    "name": "Devin Torres",
+                    "email": "devin@devintorres.com"
+                },
+                {
+                    "name": "Emerson Carvalho",
+                    "email": "emerson.broga@gmail.com"
+                },
+                {
+                    "name": "Fábio da Silva Ribeiro",
+                    "email": "fabiorphp@gmail.com"
+                },
+                {
+                    "name": "Jair Henrique",
+                    "email": "jair.henrique@gmail.com"
+                },
+                {
+                    "name": "Jayson Reis",
+                    "email": "jayson.reis@sabbre.com.br"
+                },
+                {
+                    "name": "Jayson Reis",
+                    "email": "santosdosreis@gmail.com"
+                },
+                {
+                    "name": "Jean Pimentel",
+                    "email": "jeanfap@gmail.com"
+                },
+                {
+                    "name": "Kleber Hamada Sato",
+                    "email": "kleberhs007@yahoo.com"
+                },
+                {
+                    "name": "Leandro",
+                    "email": "lleitep3@gmail.com"
+                },
+                {
+                    "name": "Marcelo Araujo",
+                    "email": "msaraujo@php.net"
+                },
+                {
+                    "name": "Michael Klishin",
+                    "email": "michaelklishin@me.com"
+                },
+                {
+                    "name": "Morf",
+                    "email": "i@morfi.ru"
+                },
+                {
+                    "name": "Rogerio Prado de Jesus",
+                    "email": "rogeriopradoj@gmail.com"
+                },
+                {
+                    "name": "Torben Brodt",
+                    "email": "t.brodt@gmail.com"
+                },
+                {
+                    "name": "unknown",
+                    "email": "kolyshkin@.sqlmaze.local"
+                }
+            ],
+            "description": "The most awesome validation engine ever created for PHP",
+            "time": "2012-04-24 23:52:45"
+        },
         {
             "name": "alexandresalome/php-selenium",
             "version": "1.0.1",

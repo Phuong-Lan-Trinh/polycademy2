@@ -75,30 +75,49 @@ class Phones extends CI_Controller{
 		//we should receive post data in the form of the phone as an array
 		//second parameter will run it through the xss filter
 		
-		$input_data = json_decode(trim(file_get_contents('php://input')), true);
-		
-		//FB::log($input_data);
+		$input_data = $this->input->json(false, true);
 		
 		$phone_data = array(
 			'age'	=> $input_data['phoneAge'],
 			'id'	=> $input_data['phoneId'],
 			'name'	=> $input_data['phoneName'],
 			'desc'	=> $input_data['phoneDesc'],
-		);
+		);		
 		
 		$this->phones[] = $phone_data;
 		
-		//return back all of those data to see if it worked!
-		Template::compose(false, $this->phones, 'json');
+		$output = array('status' => 'Done');
 		
-		//$output = array('status' => 'Done!');
-		//Template::compose(false, $output, 'json');
+		//It could return 'error' when there is an error
+		//Otherwise it returns 'status' of whatever
+		//In terms of validation errors:
+		// 'error' in terms of one error message
+		// 'status' in terms of non-error messages, or when there are complex error messages
+		// $output = array(
+			// 'status' => 'ValidationError',
+			// 'validationErrors'	=> array(
+				// 'VALIDATION ERROR 1',
+				// 'VALIDATION ERROR 2'
+			// ),
+		// );
 		
+		Template::compose(false, $output, 'json');
 	
 	}
 	
-	public function update(){}
+	public function update($id){
 	
-	public function delete(){}
+		$input_data = $this->input->json(false, true);
+		
+		FB::log($id);
+		FB::log($input_data);
+	
+	}
+	
+	public function delete($id){
+	
+		FB::log($id);
+		
+	}
 
 }

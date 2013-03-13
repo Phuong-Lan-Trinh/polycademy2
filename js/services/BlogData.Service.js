@@ -5,7 +5,17 @@ angular.module('BlogData.Service', [])
 	.factory('BlogDataServ', [
 		'$resource',
 		function($resource){
-			return $resource('api/phones/:id');
+		
+			return $resource(
+				'api/phones/:id',
+				{},
+				{
+					update: {
+						method: 'PUT', //THIS METHOD DOESN'T EXIST BY DEFAULT
+					}
+				}
+			);
+	
 		}
 	]);
 	
