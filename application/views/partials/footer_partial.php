@@ -18,11 +18,22 @@
 		<script src="<?= base_url() ?>js/vendor/bootstrap.min.js"></script>
 		<script src="<?= base_url() ?>js/vendor/angular.min.js"></script>
 		
+		<!-- AngularJS Front Controller, Bootstrap and Router -->
 		<script src="<?= base_url() ?>js/app.js"></script>
-		<script src="<?= base_url() ?>js/controllers.js"></script>
-		<script src="<?= base_url() ?>js/directives.js"></script>
-		<script src="<?= base_url() ?>js/filters.js"></script>
-		<script src="<?= base_url() ?>js/services.js"></script>
+		
+		<!-- Page Level Controllers -->
+		<script src="<?= base_url() ?>js/controllers/Nav.Controllers.js"></script>
+		<script src="<?= base_url() ?>js/controllers/Home.Controllers.js"></script>
+		<script src="<?= base_url() ?>js/controllers/Blog.Controllers.js"></script>
+		
+		<!-- Reusable Services -->
+		<script src="<?= base_url() ?>js/services/Version.Service.js"></script>
+		
+		<!-- Reusable Directives -->
+		<script src="<?= base_url() ?>js/directives/NewsItem.Directive.js"></script>
+		
+		<!-- Reusable Filters -->
+		<script src="<?= base_url() ?>js/filters/Interpolate.Filter.js"></script>
 
 		<script>
 		/*
