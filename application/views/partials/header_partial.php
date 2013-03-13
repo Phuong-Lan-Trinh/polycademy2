@@ -10,10 +10,12 @@
 		<meta name="description" content="<?= $meta_desc ?>">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="google-site-verification" content="<?= $google_site_verification ?>" />
-		<link rel="shortcut icon" href="<?php echo base_url() ?>favicon.ico">
-		<link rel="apple-touch-icon" href="<?php echo base_url() ?>apple-touch-icon.png">
-		<link rel="stylesheet" href="<?= base_url() ?>css/main.css">
-		<script src="<?= base_url() ?>js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+		<meta name="fragment" content="!" />
+		<link rel="shortcut icon" href="favicon.ico">
+		<link rel="apple-touch-icon" href="apple-touch-icon.png">
+		<link rel="stylesheet" href="css/main.css">
+		<script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+		<base href="<?= base_url() ?>" />
 	</head>
 	<body class="ng-cloak" ng-cloak>
 		<!--[if lt IE 7]>
@@ -24,8 +26,8 @@
 				<div class="navbar-inner">
 					<div class="nav-collapse collapse">
 						<ul class="nav">
-                            <li><a href="#/">Home</a></li>
-							<li><a href="#/blog">Blog</a></li>
+                            <li><a href="">Home</a></li>
+							<li><a href="blog">Blog</a></li>
 						</ul>
 					</div>
 					<p>{{data}}</p>
