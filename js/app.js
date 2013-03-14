@@ -56,22 +56,21 @@ app.config(
 	]
 );
 
-//XSRF!!
 app.run([
 	'$rootScope',
 	'$cookies',
 	'$http',
 	function($rootScope, $cookies, $http){
-		//establish a watch loop for the csrf_cookie!
+		
+		//watch the cookies, and setup our XSRF token on our headers
 		$rootScope.$watch(
 			function(){
 				return $cookies[serverVars.csrfCookieName];
 			},
 			function(){
-				//HERE CHANGE THE XSRF HEADER VALUES... using $http
-				//Then change on the server code to check for header XSRF
-				console.log($cookies[serverVars.csrfCookieName], 'IT CHANGED!');
+				$http.defaults.headers.common['X-XSRF-TOKEN'] = $cookies[serverVars.csrfCookieName];
 			}
 		);
+		
 	}
 ]);
