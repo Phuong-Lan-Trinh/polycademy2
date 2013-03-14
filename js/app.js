@@ -8,7 +8,8 @@ var app = angular.module('App', [
 	'Filters',
 	'Services',
 	'Directives',
-	'ngResource' //for RESTful resources
+	'ngResource', //for RESTful resources
+	'ngCookies'
 ]);
 
 //Define all the page level controllers (Application Logic)
@@ -30,7 +31,7 @@ app.config(
 		function($routeProvider, $locationProvider) {
 			
 			//HTML5 Mode URLs
-			$locationProvider.html5Mode(true).hashPrefix('!');;
+			$locationProvider.html5Mode(true).hashPrefix('!');
 		
 			$routeProvider.when(
 				'/',
@@ -54,3 +55,23 @@ app.config(
 		}
 	]
 );
+
+//XSRF!!
+app.run([
+	'$rootScope',
+	'$cookies',
+	'$http',
+	function($rootScope, $cookies, $http){
+		//establish a watch loop for the csrf_cookie!
+		$rootScope.$watch(
+			function(){
+				return $cookies[serverVars.csrfCookieName];
+			},
+			function(){
+				//HERE CHANGE THE XSRF HEADER VALUES... using $http
+				//Then change on the server code to check for header XSRF
+				console.log($cookies[serverVars.csrfCookieName], 'IT CHANGED!');
+			}
+		);
+	}
+]);

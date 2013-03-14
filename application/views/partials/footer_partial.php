@@ -10,7 +10,10 @@
 		
 		<!-- Pass in PHP variables to Javascript -->
 		<script>
-			var base_url = '<?= base_url() ?>';
+			var serverVars = {
+				baseUrl: '<?= base_url() ?>',
+				csrfCookieName: '<?= $this->config->item('cookie_prefix') . $this->config->item('csrf_cookie_name') ?>'
+			};
 		</script>
 		
 		<!-- Vendor Javascripts -->
@@ -20,6 +23,7 @@
 		<!-- <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.min.js"></script> -->
 		<script>window.angular || document.write('<script src="js/vendor/angular.js"><\/script>')</script>
 		<script src="js/vendor/angular-resource.min.js"></script>
+		<script src="js/vendor/angular-cookies.min.js"></script>
 		
 		<!-- AngularJS Front Controller, Bootstrap and Router -->
 		<script src="js/app.js"></script>
