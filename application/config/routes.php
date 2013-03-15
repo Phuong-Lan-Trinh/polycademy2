@@ -79,9 +79,20 @@ Pigeon::map(function($r){
 		$r->put('phones/(:any)', 'phones/update/$1');
 		$r->delete('phones/(:any)', 'phones/delete/$1');
 		
+		//courses resource, we put in and acquire new courses, so this is where we would setup dates and stuff
+		//each 11 weeks course constitute a subcourse
+		//there could different types!
+		$r->resources('courses');
+		
+		//applications resource, we put in people's applications here
+		$r->resources('applications');
+		
+		
 		//migration comment these in production
 		$r->get('migrate', 'migrate/index');
 		$r->get('migrate/revert', 'migrate/revert');
+		
+		//options for CORS will need to be implemented
 		
 	});
 	

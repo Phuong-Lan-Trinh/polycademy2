@@ -2,8 +2,8 @@
 
 class Migration_add_ionauth extends CI_Migration {
 
-	public function up()
-	{
+	public function up(){
+	
 		// Drop table 'groups' if it exists		
 		//$this->dbforge->drop_table('groups');
 
@@ -231,11 +231,12 @@ class Migration_add_ionauth extends CI_Migration {
 
 	}
 
-	public function down()
-	{
+	public function down(){
+	
 		$this->dbforge->drop_table('users');
 		$this->dbforge->drop_table('groups');
 		$this->dbforge->drop_table('users_groups');
 		$this->dbforge->drop_table('login_attempts');
+		
 	}
 }
