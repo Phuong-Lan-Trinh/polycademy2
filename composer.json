@@ -17,7 +17,7 @@
 		"jamierumbelow/pigeon": "*",
 		"firephp/firephp-core": "dev-master",
 		"hybridauth/hybridauth": "dev-master",
-		"Respect/Validation": "*"
+		"hybridlogic/validation": "*"
     },
     "config": {
         "bin-dir": "bin/"

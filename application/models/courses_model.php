@@ -1,50 +1,93 @@
 <?php
 
-use Respect\Validation\Validator as v;
+use HybridLogic\Validation\Validator;
+use HybridLogic\Validation\Rule;
 
 class Courses_model extends CI_Model{
 
-	public function __construct($validation){
+	protected $validator;
+	protected $errors;
+
+	public function __construct(){
+	
 		parent::__construct();
+		$this->validator = new Validator;
+		
 	}
 	
 	public function create($data){
 	
-		//validate the data coming in
+		//Labels
+		$this->validator
+			->set_label('name', 'Course Name')
+			->set_label('starting_date', 'Starting Date')
+			->set_label('days_duration', 'Course Duration')
+			->set_label('times', 'Course Times')
+			->set_label('number_of_applications', 'Number of Applicants')
+			->set_label('number_of_students', 'Number of Students');
 		
-		try {
-			$nameValid = v::alnum()->length(1, 50)->setName('Course Name');
-			$startValid = v::date('Y-m-d')->between('2012-01-01', '3000-01-01')->setName('Starting Date');
-			$daysValid = v::numeric();
-			//$timesValid = 
-			//$applicationsValid = 
-			//$studentsValid = 
+		//name rules
+		$this->validator
+			->add_rule('name', new Rule\NotEmpty())
+			->add_rule('name', new Rule\MinLength(5))
+			->add_rule('name', new Rule\MaxLength(50));
+		
+		//starting date rules
+		$this->validator
+			->add_rule('starting_date', new Rule\NotEmpty())			
+			->add_rule('starting_date', new Rule\Regex('/^(19|20)\d\d\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$/'));
 			
+		//days duration rules
+		$this->validator
+			->add_rule('days_duration', new Rule\NotEmpty())
+			->add_rule('days_duration', new Rule\Number())
+			->add_rule('days_duration', new Rule\NumRange(1, 200));
 			
-			$nameValid->assert($data['name']);
-			$startValid->assert($data['starting_date']);
-			$daysValid->assert($data['days_duration']);
-			$timesValid->assert($data['times']);
-			$applicationsValid->assert($data['number_of_applications']);
-			$studentsValid->assert($data['number_of_students']);
+		//times rules
+		$this->validator
+			->add_rule('times', new Rule\NotEmpty())
+			->add_rule('times', new Rule\MinLength(1))
+			->add_rule('times', new Rule\MaxLength(100));
 			
-		}catch(\InvalidArgumentException $e){
-			var_dump($e->findMessages());
+		//application rules
+		$this->validator
+			->add_rule('number_of_applications', new Rule\Number())
+			->add_rule('number_of_applications', new Rule\NumRange(0, 100));
+			
+		//students rules
+		$this->validator
+			->add_rule('number_of_students', new Rule\Number())
+			->add_rule('number_of_students', new Rule\NumRange(0, 100));
+		
+		
+		if(!$this->validator->is_valid($data)){
+		
+			//returns array of key for data and value
+			$this->errors = $this->validator->get_errors();
+			return false;
+			
 		}
 		
-		//name
-		//starting_date
-		//days_duration
-		//times
-		//number_of_applications
-		//number_of_students
-	
-		$data = array(
+		$query = $this->db->insert('courses', $data); 
+ 
+        if(!$query){
+ 
+            $msg = $this->db->_error_message();
+            $num = $this->db->_error_number();
+            $last_query = $this->db->last_query();
 			
-		);
-	
-		$this->db->insert($data);
-	
+            log_message('error', 'Problem Inserting to courses table: ' . $msg . ' (' . $num . '), using this query: "' . $last_query . '"');
+			
+			$this->errors = array(
+				'database'	=> 'Problem inserting data to courses table.',
+			);
+ 
+            return false;
+			
+        }
+		
+        return $this->db->insert_id();
+		
 	}
 	
 	public function read(){
@@ -61,6 +104,10 @@ class Courses_model extends CI_Model{
 	
 	public function delete(){
 	
+	}
+	
+	public function get_errors(){
+		return $this->errors;
 	}
 
 }

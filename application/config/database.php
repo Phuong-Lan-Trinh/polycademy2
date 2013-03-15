@@ -90,7 +90,7 @@ if(ENVIRONMENT == 'development'){
 		'dbdriver' => 'mysqli',
 		'dbprefix' => '',
 		'pconnect' => TRUE,
-		'db_debug' => TRUE,
+		'db_debug' => FALSE, //has to be false so we can do our own error logging
 		'cache_on' => FALSE,
 		'cachedir' => '',
 		'char_set' => 'utf8',
