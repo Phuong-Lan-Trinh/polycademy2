@@ -1,5 +1,5 @@
 {
-    "hash": "67614530541a5ecb68e559436c07e962",
+    "hash": "cacf2244ac15208d275e53effd77402c",
     "packages": [
         {
             "name": "alexandresalome/php-selenium",
@@ -1070,7 +1070,7 @@
                 {
                     "name": "Anthon Pang",
                     "email": "apang@softwaredevelopment.ca",
-                    "role": "Fork Maintainer"
+                    "role": "developer"
                 }
             ],
             "description": "PHP WebDriver for Selenium 2",
