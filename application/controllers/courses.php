@@ -8,18 +8,24 @@ class Courses extends CI_Controller{
 	}
 	
 	public function index(){
-	
+		
 		//get all courses
 		$data = array(
-			'name' => '11 Weeks Weekly',
+			'name' => '',
 			'starting_date' => date('Y-m-d', now()),
 			'days_duration'	=> 10,
-			'times'	=> 'Blah blah blah',
+			'times'	=> 'Blahghj blah blah',
 			'number_of_applications'	=> 50,
 			'number_of_students'	=> 40
 		);
 		
+		var_dump(str_replace(' ', '', $data['times']));
+		
+		var_dump(ctype_alnum(str_replace(' ', '', $data['times'])));
+		
 		$this->Courses_model->create($data);
+		
+		var_dump($this->Courses_model->get_errors());
 	}
 	
 	public function show($id){

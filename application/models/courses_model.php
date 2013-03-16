@@ -1,7 +1,7 @@
 <?php
 
-use HybridLogic\Validation\Validator;
-use HybridLogic\Validation\Rule;
+use Polycademy\Validation\Validator;
+use Polycademy\Validation\Rule;
 
 class Courses_model extends CI_Model{
 
@@ -16,49 +16,42 @@ class Courses_model extends CI_Model{
 	}
 	
 	public function create($data){
-	
-		//Labels
-		$this->validator
-			->set_label('name', 'Course Name')
-			->set_label('starting_date', 'Starting Date')
-			->set_label('days_duration', 'Course Duration')
-			->set_label('times', 'Course Times')
-			->set_label('number_of_applications', 'Number of Applicants')
-			->set_label('number_of_students', 'Number of Students');
 		
-		//name rules
-		$this->validator
-			->add_rule('name', new Rule\NotEmpty())
-			->add_rule('name', new Rule\MinLength(5))
-			->add_rule('name', new Rule\MaxLength(50));
-		
-		//starting date rules
-		$this->validator
-			->add_rule('starting_date', new Rule\NotEmpty())			
-			->add_rule('starting_date', new Rule\Regex('/^(19|20)\d\d\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$/'));
-			
-		//days duration rules
-		$this->validator
-			->add_rule('days_duration', new Rule\NotEmpty())
-			->add_rule('days_duration', new Rule\Number())
-			->add_rule('days_duration', new Rule\NumRange(1, 200));
-			
-		//times rules
-		$this->validator
-			->add_rule('times', new Rule\NotEmpty())
-			->add_rule('times', new Rule\MinLength(1))
-			->add_rule('times', new Rule\MaxLength(100));
-			
-		//application rules
-		$this->validator
-			->add_rule('number_of_applications', new Rule\Number())
-			->add_rule('number_of_applications', new Rule\NumRange(0, 100));
-			
-		//students rules
-		$this->validator
-			->add_rule('number_of_students', new Rule\Number())
-			->add_rule('number_of_students', new Rule\NumRange(0, 100));
-		
+		$this->validator->setup_rules(array(
+			'name' => array(
+				'set_label:Course Name',
+				'NotEmpty',
+				'AlphaNumericSpace',
+				'MinLength:5',
+			),
+			'starting_date' => array(
+				'set_label:Starting Date',
+				'Regex:/^(19|20)\d\d\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$/',
+			),
+			'days_duration' => array(
+				'set_label:Course Duration',
+				'NotEmpty',
+				'Number',
+				'NumRange:1,200',
+			),
+			'times' => array(
+				'set_label:Course Times',
+				'NotEmpty',
+				'MinLength:1',
+				'MaxLength:100',
+				'AlphaNumericSpace',
+			),
+			'number_of_applications' => array(
+				'set_label:Number of Applicants',
+				'Number',
+				'NumRange:0,100',
+			),
+			'number_of_students' => array(
+				'set_label:Number of Students',
+				'Number',
+				'NumRange:0,100',
+			),
+		));
 		
 		if(!$this->validator->is_valid($data)){
 		
@@ -81,7 +74,7 @@ class Courses_model extends CI_Model{
 			$this->errors = array(
 				'database'	=> 'Problem inserting data to courses table.',
 			);
- 
+			
             return false;
 			
         }
