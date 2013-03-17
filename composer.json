@@ -17,7 +17,7 @@
 		"jamierumbelow/pigeon": "*",
 		"firephp/firephp-core": "dev-master",
 		"hybridauth/hybridauth": "dev-master",
-		"polycademy/validation": "1.0.8"
+		"polycademy/validation": "*"
     },
     "config": {
         "bin-dir": "bin/"
