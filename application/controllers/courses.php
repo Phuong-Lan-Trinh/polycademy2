@@ -23,13 +23,13 @@ class Courses extends CI_Controller{
 		
 		if($query){
 			foreach($query as &$course){
-				$course = output_message_mapper($course, 'course');
+				$course = output_message_mapper($course);
 			}
 			$output = $query;
 		}else{
 			$this->output->set_status_header('404');
 			$output = array(
-				'error'			=> output_message_mapper($this->Courses_model->get_errors(), 'course'),
+				'error'			=> output_message_mapper($this->Courses_model->get_errors()),
 			);
 		}
 		
@@ -48,11 +48,11 @@ class Courses extends CI_Controller{
 		$query = $this->Courses_model->read($id);		
 		
 		if($query){
-			$output = output_message_mapper($query, 'course');
+			$output = output_message_mapper($query);
 		}else{
 			$this->output->set_status_header('404');
 			$output = array(
-				'error'			=> output_message_mapper($this->Courses_model->get_errors(), 'course'),
+				'error'			=> output_message_mapper($this->Courses_model->get_errors()),
 			);
 		}
 		
@@ -76,7 +76,7 @@ class Courses extends CI_Controller{
 		$data['courseNumberOfApplications'] = (!empty($data['courseNumberOfApplications']) ? $data['courseNumberOfApplications'] : 0);
 		$data['courseNumberOfStudents'] = (!empty($data['courseNumberOfStudents']) ? $data['courseNumberOfStudents'] : 0);
 		
-		$data = input_message_mapper($data, 'course');
+		$data = input_message_mapper($data);
 		
 		$query = $this->Courses_model->create($data);
 		
@@ -88,7 +88,7 @@ class Courses extends CI_Controller{
 		}else{
 			$this->output->set_status_header('400');
 			$output = array(
-				'error'			=> output_message_mapper($this->Courses_model->get_errors(), 'course'),
+				'error'			=> output_message_mapper($this->Courses_model->get_errors()),
 			);
 		}
 		
@@ -111,7 +111,7 @@ class Courses extends CI_Controller{
 		$data = $this->input->json(false, true);
 		
 		//change camelcase to snakecase and remove the model prefix
-		$data = input_message_mapper($data, 'course');
+		$data = input_message_mapper($data);
 		
 		$query = $this->Courses_model->update($data, $id);
 		
@@ -123,7 +123,7 @@ class Courses extends CI_Controller{
 		}else{
 			$this->output->set_status_header('204');
 			$output = array(
-				'error'			=> output_message_mapper($this->Courses_model->get_errors(), 'course'),
+				'error'			=> output_message_mapper($this->Courses_model->get_errors()),
 			);
 		}
 		
@@ -152,7 +152,7 @@ class Courses extends CI_Controller{
 		}else{
 			$this->output->set_status_header('204');
 			$output = array(
-				'error'			=> output_message_mapper($this->Courses_model->get_errors(), 'course'),
+				'error'			=> output_message_mapper($this->Courses_model->get_errors()),
 			);
 		}
 		

@@ -7,6 +7,7 @@
 		<!-- Client Side Templates -->
 		<? Template::partial('home/home_index') ?>
 		<? Template::partial('blog/blog_index') ?>
+		<? Template::partial('courses/courses_index') ?>
 		
 		<!-- Pass in PHP variables to Javascript -->
 		<script>
@@ -32,10 +33,12 @@
 		<script src="js/controllers/Nav.Controllers.js"></script>
 		<script src="js/controllers/Home.Controllers.js"></script>
 		<script src="js/controllers/Blog.Controllers.js"></script>
+		<script src="js/controllers/Courses.Controllers.js"></script>
 		
 		<!-- Reusable Services -->
 		<script src="js/services/Version.Service.js"></script>
 		<script src="js/services/BlogData.Service.js"></script>
+		<script src="js/services/Courses.Service.js"></script>
 		
 		<!-- Reusable Directives -->
 		<script src="js/directives/NewsItem.Directive.js"></script>

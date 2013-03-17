@@ -11,7 +11,7 @@ angular.module('BlogData.Service', [])
 				{},
 				{
 					update: {
-						method: 'PUT', //THIS METHOD DOESN'T EXIST BY DEFAULT
+						method: 'PUT' //THIS METHOD DOESN'T EXIST BY DEFAULT
 					}
 				}
 			);
