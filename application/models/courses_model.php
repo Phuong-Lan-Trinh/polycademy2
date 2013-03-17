@@ -23,6 +23,7 @@ class Courses_model extends CI_Model{
 				'NotEmpty',
 				'AlphaNumericSpace',
 				'MinLength:5',
+				'MaxLength:50',
 			),
 			'starting_date' => array(
 				'set_label:Starting Date',
@@ -84,6 +85,8 @@ class Courses_model extends CI_Model{
 	}
 	
 	public function read(){
+	
+		$query = $this->db->
 	
 	}
 	

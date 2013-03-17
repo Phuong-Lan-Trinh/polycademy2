@@ -8,24 +8,8 @@ class Courses extends CI_Controller{
 	}
 	
 	public function index(){
-		
 		//get all courses
-		$data = array(
-			'name' => '',
-			'starting_date' => date('Y-m-d', now()),
-			'days_duration'	=> 10,
-			'times'	=> 'Blahghj blah blah',
-			'number_of_applications'	=> 50,
-			'number_of_students'	=> 40
-		);
-		
-		var_dump(str_replace(' ', '', $data['times']));
-		
-		var_dump(ctype_alnum(str_replace(' ', '', $data['times'])));
-		
-		$this->Courses_model->create($data);
-		
-		var_dump($this->Courses_model->get_errors());
+
 	}
 	
 	public function show($id){
@@ -34,6 +18,35 @@ class Courses extends CI_Controller{
 	
 	public function create(){
 		//post a new course
+		
+		$data = $this->input->json(false, true);
+		
+		$data = array(
+			'name'						=> $data['courseName'],
+			'starting_date'				=> $data['courseStartingDate'],
+			'days_duration'				=> $data['courseDaysDuration'],
+			'times'						=> $data['courseTimes'],
+			'number_of_applications'	=> $data['courseNumberOfApplications'],
+			'number_of_students'		=> $data['courseNumberOfStudents'],
+		);
+		
+		$query = $this->Courses_model->create($data);
+		
+		if($query){
+			$output = array(
+				'status'		=> 'Done',
+				'resourceId'	=> $query,
+			);
+		}else{
+			$this->output->set_status_header('400');
+			$errors = validation_error_message_mapper($this->Courses_model->get_errors(), 'course'); 
+			$output = array(
+				'error'			=> $errors,
+			);
+		}
+		
+		Template::compose(false, $output, 'json');
+		
 	}
 	
 	public function update($id){

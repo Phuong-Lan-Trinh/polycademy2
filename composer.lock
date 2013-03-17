@@ -1645,16 +1645,16 @@
         },
         {
             "name": "polycademy/validation",
-            "version": "v1.0.8",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Polycademy/PHP-Validation.git",
-                "reference": "v1.0.8"
+                "reference": "039176b9e7497843ab3a8e7c5c0729f441459eb6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Polycademy/PHP-Validation/zipball/v1.0.8",
-                "reference": "v1.0.8",
+                "url": "https://api.github.com/repos/Polycademy/PHP-Validation/zipball/039176b9e7497843ab3a8e7c5c0729f441459eb6",
+                "reference": "039176b9e7497843ab3a8e7c5c0729f441459eb6",
                 "shasum": ""
             },
             "require": {
@@ -1695,7 +1695,7 @@
                 "services",
                 "validation"
             ],
-            "time": "2013-03-16 19:15:08"
+            "time": "2013-03-17 04:40:07"
         },
         {
             "name": "react/event-loop",
