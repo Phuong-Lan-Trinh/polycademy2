@@ -7,8 +7,14 @@ class Courses extends CI_Controller{
 		$this->load->model('Courses_model');
 	}
 	
+	/**
+	 * Gets all Courses
+	 *
+	 * @queryparam int Limit the number of courses
+	 * @queryparam int Offset the number of courses for pagination
+	 * @return JSON
+	 **/
 	public function index(){
-		//get all courses
 		
 		$limit = $this->input->get('limit', true);
 		$offset = $this->input->get('offset', true);
@@ -31,13 +37,18 @@ class Courses extends CI_Controller{
 
 	}
 	
+	/**
+	 * Gets one course
+	 *
+	 * @param int Course ID
+	 * @return JSON
+	 **/
 	public function show($id){
-		//get one course
 		
-		$query = $this->Courses_model->read($id);
+		$query = $this->Courses_model->read($id);		
 		
 		if($query){
-			$output = output_message_mapper($output, 'course');
+			$output = output_message_mapper($query, 'course');
 		}else{
 			$this->output->set_status_header('404');
 			$output = array(
@@ -49,6 +60,12 @@ class Courses extends CI_Controller{
 		
 	}
 	
+	/**
+	 * Posts a new course
+	 *
+	 * @postparam json Input data of the course
+	 * @return JSON
+	 **/
 	public function create(){
 		//post a new course
 		
@@ -79,6 +96,13 @@ class Courses extends CI_Controller{
 		
 	}
 	
+	/**
+	 * Updates a particular course
+	 *
+	 * @param int Course ID
+	 * @putparam json Updated input data for the course
+	 * @return JSON
+	 **/
 	public function update($id){
 		//update a course
 		
@@ -107,6 +131,12 @@ class Courses extends CI_Controller{
 		
 	}
 	
+	/**
+	 * Deletes a particular course
+	 *
+	 * @param int Course ID
+	 * @return JSON
+	 **/
 	public function delete($id){
 		//delete a course
 		
