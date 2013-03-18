@@ -24,11 +24,13 @@ angular.module('Controllers', [
 ]);
 //Define all shared services (Interaction with Backend)
 angular.module('Services', [
+	'AjaxLoader.Service',
+	'ErrorResponse.Service',
 	'Courses.Service'
 ]);
 //Define all shared directives (UI Logic)
 angular.module('Directives', [
-	'FooterSection.Directive'
+	'Utilities.Directive'
 ]);
 //Define all shared filters (UI Filtering)
 angular.module('Filters', [
@@ -44,11 +46,13 @@ app.config(
 	[
 		'$routeProvider',
 		'$locationProvider',
-		function($routeProvider, $locationProvider) {
+		'$httpProvider',
+		function($routeProvider, $locationProvider, $httpProvider) {
 			
 			//HTML5 Mode URLs
 			$locationProvider.html5Mode(true).hashPrefix('!');
 			
+			//Routing
 			$routeProvider
 				.when(
 					'/',
@@ -90,7 +94,7 @@ app.run([
 	'$cookies',
 	'$http',
 	function($rootScope, $cookies, $http){
-		
+	
 		//XSRF INTEGRATION
 		$rootScope.$watch(
 			function(){

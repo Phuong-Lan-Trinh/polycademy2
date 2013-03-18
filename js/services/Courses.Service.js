@@ -1,6 +1,5 @@
 'use strict';
 
-//Blog data service will acquire the data from the blogo!
 angular.module('Courses.Service', [])
 	.factory('CoursesServ', [
 		'$resource',
