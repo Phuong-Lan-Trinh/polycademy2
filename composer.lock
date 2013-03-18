@@ -1,5 +1,5 @@
 {
-    "hash": "787330c9797a59de6cd9c751e627907b",
+    "hash": "0e37cf331ad88390ef76d795c159441b",
     "packages": [
         {
             "name": "alexandresalome/php-selenium",
@@ -1022,7 +1022,7 @@
                 {
                     "name": "Anthon Pang",
                     "email": "apang@softwaredevelopment.ca",
-                    "role": "developer"
+                    "role": "Fork Maintainer"
                 }
             ],
             "description": "PHP WebDriver for Selenium 2",
@@ -1078,49 +1078,6 @@
                 "routing"
             ],
             "time": "2012-09-25 08:53:19"
-        },
-        {
-            "name": "kriswallsmith/assetic",
-            "version": "v1.0.4",
-            "source": {
-                "type": "git",
-                "url": "http://github.com/kriswallsmith/assetic.git",
-                "reference": "v1.0.4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/kriswallsmith/assetic/zipball/v1.0.4",
-                "reference": "v1.0.4",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.1"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Assetic": "src/"
-                }
-            },
-            "notification-url": "http://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Kris Wallsmith",
-                    "email": "kris.wallsmith@gmail.com",
-                    "homepage": "http://kriswallsmith.net/"
-                }
-            ],
-            "description": "Asset Management for PHP",
-            "homepage": "https://github.com/kriswallsmith/assetic",
-            "keywords": [
-                "assets",
-                "compression",
-                "minification"
-            ],
-            "time": "2012-08-28 05:18:28"
         },
         {
             "name": "kriswallsmith/buzz",
