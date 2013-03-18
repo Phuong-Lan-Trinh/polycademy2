@@ -1,5 +1,5 @@
 {
-    "hash": "8d8bd04bcd2175a1e50c461405be2e26",
+    "hash": "787330c9797a59de6cd9c751e627907b",
     "packages": [
         {
             "name": "alexandresalome/php-selenium",
@@ -1080,6 +1080,49 @@
             "time": "2012-09-25 08:53:19"
         },
         {
+            "name": "kriswallsmith/assetic",
+            "version": "v1.0.4",
+            "source": {
+                "type": "git",
+                "url": "http://github.com/kriswallsmith/assetic.git",
+                "reference": "v1.0.4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/kriswallsmith/assetic/zipball/v1.0.4",
+                "reference": "v1.0.4",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Assetic": "src/"
+                }
+            },
+            "notification-url": "http://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kris Wallsmith",
+                    "email": "kris.wallsmith@gmail.com",
+                    "homepage": "http://kriswallsmith.net/"
+                }
+            ],
+            "description": "Asset Management for PHP",
+            "homepage": "https://github.com/kriswallsmith/assetic",
+            "keywords": [
+                "assets",
+                "compression",
+                "minification"
+            ],
+            "time": "2012-08-28 05:18:28"
+        },
+        {
             "name": "kriswallsmith/buzz",
             "version": "v0.8",
             "source": {
@@ -1159,58 +1202,6 @@
             "description": "lessphp is a compiler for LESS written in PHP.",
             "homepage": "http://leafo.net/lessphp/",
             "time": "2012-08-18 19:16:09"
-        },
-        {
-            "name": "phing/phing",
-            "version": "2.4.13",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/phingofficial/phing",
-                "reference": "2.4.13"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/phingofficial/phing/archive/2.4.13.zip",
-                "reference": "2.4.13",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.2.0"
-            },
-            "bin": [
-                "bin/phing"
-            ],
-            "type": "library",
-            "autoload": {
-                "classmap": [
-                    "classes/phing/"
-                ]
-            },
-            "notification-url": "http://packagist.org/downloads/",
-            "include-path": [
-                "classes"
-            ],
-            "license": [
-                "LGPL3"
-            ],
-            "authors": [
-                {
-                    "name": "Michiel Rook",
-                    "email": "mrook@php.net"
-                },
-                {
-                    "name": "Phing Community",
-                    "homepage": "http://www.phing.info/trac/wiki/Development/Contributors"
-                }
-            ],
-            "description": "PHing Is Not GNU make; it's a PHP project build system or build tool based on Apache Ant.",
-            "homepage": "http://www.phing.info/",
-            "keywords": [
-                "build",
-                "task",
-                "tool"
-            ],
-            "time": "2012-11-20 06:49:06"
         },
         {
             "name": "phpunit/php-code-coverage",

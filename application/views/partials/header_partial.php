@@ -21,17 +21,35 @@
 		<!--[if lt IE 7]>
 			<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
 		<![endif]-->
-		<header ng-controller="NavIndexCtrl">
+        <header class="navbar navbar-static-top" ng-controller="NavIndexCtrl">
 			<div class="container">
 				<div class="navbar-inner">
+					<a class="logo" href="<?php echo site_url() ?>">
+						<img src="img/logo.png" />
+					</a>
+					<p class="slogan"><?= $desc ?></p>
+					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</a>
 					<div class="nav-collapse collapse">
 						<ul class="nav">
-                            <li><a href="">Home</a></li>
-							<li><a href="blog">Blog</a></li>
-							<li><a href="courses">Courses</a></li>
+							<li><a href="">home</a></li>
+							<li class="divider-vertical"></li>
+							<li><a href="courses">courses</a></li>
+							<li class="divider-vertical"></li>
+							<li><a href="partners">partners</a></li>
+							<li class="divider-vertical"></li>
+							<li><a href="http://codeforaustralia.com.au">code for australia</a></li>
+							<li class="divider-vertical"></li>
+							<li><a href="http://phpbounce.aws.af.cm/">php bounce</a></li>
+							<li class="divider-vertical"></li>
+							<li><a href="http://polycademy.eventbrite.com.au/">events</a></li>
+							<li class="divider-vertical"></li>
+							<li><a href="blog">blog</a></li>
 						</ul>
 					</div>
-					<p>{{data}}</p>
 				</div>
 			</div>
-		</header>
+        </header>

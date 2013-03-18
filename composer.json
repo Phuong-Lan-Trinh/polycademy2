@@ -9,7 +9,6 @@
         "behat/mink-sahi-driver": "*",
         "behat/mink-zombie-driver": "*",
         "phpunit/phpunit": "3.7.*",
-        "phing/phing": "2.4.13",
 		"cboden/Ratchet": "*",
         "leafo/lessphp": "0.3.8",
 		"pimple/pimple": "*",
@@ -17,7 +16,8 @@
 		"jamierumbelow/pigeon": "*",
 		"firephp/firephp-core": "dev-master",
 		"hybridauth/hybridauth": "dev-master",
-		"polycademy/validation": "*"
+		"polycademy/validation": "*",
+		"kriswallsmith/assetic": "*"
     },
     "config": {
         "bin-dir": "bin/"

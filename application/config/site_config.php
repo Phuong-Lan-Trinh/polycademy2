@@ -10,6 +10,8 @@ $config['view_data'] = array(
 	),
 	'footer' => array(
 		'google_analytics_key'	=> '',
+		'facebook'				=> 'https://www.facebook.com/Polycademy',
+		'twitter'				=> 'https://twitter.com/Polycademy',
 		'copyright'				=> '&copy; Polycademy & Code for Australia 2012',
 	),
 );
