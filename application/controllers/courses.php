@@ -73,8 +73,8 @@ class Courses extends CI_Controller{
 		
 		$data = $this->input->json(false, true);
 		
-		$data['courseNumberOfApplications'] = (!empty($data['courseNumberOfApplications']) ? $data['courseNumberOfApplications'] : 0);
-		$data['courseNumberOfStudents'] = (!empty($data['courseNumberOfStudents']) ? $data['courseNumberOfStudents'] : 0);
+		$data['numberOfApplications'] = (!empty($data['numberOfApplications']) ? $data['numberOfApplications'] : 0);
+		$data['numberOfStudents'] = (!empty($data['numberOfStudents']) ? $data['numberOfStudents'] : 0);
 		
 		$data = input_message_mapper($data);
 		
