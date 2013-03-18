@@ -15,8 +15,3 @@ $config['view_data'] = array(
 		'copyright'				=> '&copy; Polycademy & Code for Australia 2012',
 	),
 );
-
-//SETUP YOUR SITE WIDE VALIDATION RULES HERE
-$config['validation_rules'] = array(
-
-);
