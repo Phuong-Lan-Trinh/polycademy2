@@ -1,7 +1,6 @@
 <?php
 
 use Polycademy\Validation\Validator;
-use Polycademy\Validation\Rule;
 
 class Courses_model extends CI_Model{
 
