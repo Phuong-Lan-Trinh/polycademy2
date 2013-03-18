@@ -5,9 +5,9 @@ angular.module('Blog.Controllers', ['Blog.Controllers.Index']);
 angular.module('Blog.Controllers.Index', [])
 	.controller('BlogIndexCtrl', [
 		'$scope',
-		'BlogDataServ',
-		function($scope, BlogDataServ){
+		function($scope){
 			
+			/*
 			BlogDataServ.get({id: 'one-specific'},
 				function(response){
 					//success callback
@@ -91,6 +91,7 @@ angular.module('Blog.Controllers.Index', [])
 					// }
 				// );
 			};
+			*/
 			
 		}
 	]);

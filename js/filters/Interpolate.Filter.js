@@ -3,7 +3,7 @@
 //REUSABLE FILTER
 
 angular.module('Interpolate.Filter', [])
-	.filter('Interpolate', [
+	.filter('interpolate', [
 		'version',
 		function(version){
 			return function(text){

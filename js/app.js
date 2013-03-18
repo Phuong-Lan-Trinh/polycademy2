@@ -1,6 +1,8 @@
 'use strict';
 
-//BOOTSTRAPPER
+/* ==========================================================================
+   BOOTSTRAPPER
+   ========================================================================== */
 
 //app is an module that is dependent on several top level modules
 var app = angular.module('App', [
@@ -13,15 +15,29 @@ var app = angular.module('App', [
 ]);
 
 //Define all the page level controllers (Application Logic)
-angular.module('Controllers', ['Nav.Controllers', 'Home.Controllers', 'Blog.Controllers', 'Courses.Controllers']);
+angular.module('Controllers', [
+	'Header.Controllers', 
+	'Footer.Controllers', 
+	'Home.Controllers', 
+	'Blog.Controllers', 
+	'Courses.Controllers'
+]);
 //Define all shared services (Interaction with Backend)
-angular.module('Services', ['Version.Service', 'BlogData.Service', 'Courses.Service']);
+angular.module('Services', [
+	'Courses.Service'
+]);
 //Define all shared directives (UI Logic)
-angular.module('Directives', ['NewsItem.Directive']);
+angular.module('Directives', [
+	'FooterSection.Directive'
+]);
 //Define all shared filters (UI Filtering)
-angular.module('Filters', ['Interpolate.Filter']);
+angular.module('Filters', [
+	'Interpolate.Filter'
+]);
 
-//ROUTER
+/* ==========================================================================
+   ROUTER
+   ========================================================================== */
 
 //Define all routes here and which page level controller should handle them
 app.config(
@@ -65,13 +81,17 @@ app.config(
 	]
 );
 
+/* ==========================================================================
+   GLOBAL FEATURES
+   ========================================================================== */
+
 app.run([
 	'$rootScope',
 	'$cookies',
 	'$http',
 	function($rootScope, $cookies, $http){
 		
-		//watch the cookies, and setup our XSRF token on our headers
+		//XSRF INTEGRATION
 		$rootScope.$watch(
 			function(){
 				return $cookies[serverVars.csrfCookieName];
@@ -80,6 +100,8 @@ app.run([
 				$http.defaults.headers.common['X-XSRF-TOKEN'] = $cookies[serverVars.csrfCookieName];
 			}
 		);
+		
+		//XHR ERROR HANDLER
 		
 	}
 ]);

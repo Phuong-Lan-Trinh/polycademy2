@@ -1,6 +1,6 @@
-		<footer>
+		<footer ng-controller="FooterCtrl">
 			<div class="container">
-				<article class="row footer_grid">
+				<article class="row footer_grid" footer-section-dir>
 					<section class="blog_panel span4">
 						<h3><a href="blog">Blog</a></h3></h3>
 						<p>
@@ -19,10 +19,12 @@
 					</section>
 					<section class="notices_panel span4">
 						<h3>Notices</h3>
-						<p>We're looking for companies, mentors and advisors. If you are interested in getting involved and checking out our students, check our partners page and contact us.
-						<br />
-						<br />
-						You can contact us at <a href='http://www.google.com/recaptcha/mailhide/d?k=01q-bJV3WQrMYWD2quLJ7VPA==&c=FsmnfqaQraWCMzZB6tsagBZd557LPBLlxh80gaenMSo='>@polycademy.com</a> or phone us at +61 (0)420 925 975</p>
+						<p>
+							We're looking for companies, mentors and advisors. If you are interested in getting involved and checking out our students, check our partners page and contact us.
+							<br />
+							<br />
+							You can contact us at <a href='http://www.google.com/recaptcha/mailhide/d?k=01q-bJV3WQrMYWD2quLJ7VPA==&c=FsmnfqaQraWCMzZB6tsagBZd557LPBLlxh80gaenMSo='>@polycademy.com</a> or phone us at +61 (0)420 925 975
+						</p>
 					</section>
 				</article>
 				<ul class="footer_links">
@@ -59,18 +61,17 @@
 		<script src="js/app.js"></script>
 		
 		<!-- Page Level Controllers -->
-		<script src="js/controllers/Nav.Controllers.js"></script>
+		<script src="js/controllers/Header.Controllers.js"></script>
+		<script src="js/controllers/Footer.Controllers.js"></script>
 		<script src="js/controllers/Home.Controllers.js"></script>
-		<script src="js/controllers/Blog.Controllers.js"></script>
 		<script src="js/controllers/Courses.Controllers.js"></script>
+		<script src="js/controllers/Blog.Controllers.js"></script>
 		
 		<!-- Reusable Services -->
-		<script src="js/services/Version.Service.js"></script>
-		<script src="js/services/BlogData.Service.js"></script>
 		<script src="js/services/Courses.Service.js"></script>
 		
 		<!-- Reusable Directives -->
-		<script src="js/directives/NewsItem.Directive.js"></script>
+		<script src="js/directives/FooterSection.Directive.js"></script>
 		
 		<!-- Reusable Filters -->
 		<script src="js/filters/Interpolate.Filter.js"></script>

@@ -3,7 +3,7 @@
 //SINGLE REUSABLE DIRECTIVE
 
 angular.module('NewsItem.Directive', [])
-	.directive('NewsItemDir', [
+	.directive('newsItemDir', [
 		'version',
 		function(version) {
 		
