@@ -1,6 +1,6 @@
 		<footer ng-controller="FooterCtrl">
 			<div class="container">
-				<article class="row footer_grid" footer-section-dir>
+				<article class="row footer_grid" equalise-heights-dir="section > p">
 					<section class="blog_panel span4">
 						<h3><a href="blog">Blog</a></h3></h3>
 						<p>
@@ -35,6 +35,12 @@
 			</div>
 		</footer>
 		
+		<!-- XHR Messages other than GET-->
+		<div class="messagesList" app-messages></div>
+		
+		<!-- AJAX Loader Screen -->
+		<div class="ajax_loader"></div>
+		
 		<!-- Client Side Templates -->
 		<? Template::partial('home/home_index') ?>
 		<? Template::partial('blog/blog_index') ?>
@@ -68,10 +74,12 @@
 		<script src="js/controllers/Blog.Controllers.js"></script>
 		
 		<!-- Reusable Services -->
+		<script src="js/services/AjaxLoader.Service.js"></script>
+		<script src="js/services/ErrorResponse.Service.js"></script>
 		<script src="js/services/Courses.Service.js"></script>
 		
 		<!-- Reusable Directives -->
-		<script src="js/directives/FooterSection.Directive.js"></script>
+		<script src="js/directives/Utilities.Directive.js"></script>
 		
 		<!-- Reusable Filters -->
 		<script src="js/filters/Interpolate.Filter.js"></script>
