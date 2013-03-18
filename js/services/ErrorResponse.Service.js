@@ -1,35 +1,5 @@
 'use strict';
 
-// angular.module('ErrorResponse.Service', [])
-	// .config(
-		// [
-			// '$httpProvider',
-			// function($httpProvider){
-				
-				// $httpProvider.responseInterceptors.push(function($q) {
-					// return function(promise){
-						
-						// var ajaxLoaderhide = function(response) {
-							// console.log('Success');
-							// return response;
-						// };
-						
-						// var failajax = function(response){
-							// console.log('failure');
-							// return $q.reject(response);
-						// };
-						
-						// return promise.then(ajaxLoaderhide, failajax);
-						
-					// };
-				// });
-			
-			// }
-		// ]
-	// );
-
-
-
 /**
  * Response Handler for Error Codes across all HTTP requests to show an alert box!
  */
