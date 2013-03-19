@@ -20,6 +20,7 @@ angular.module('ErrorResponse.Service', [])
 			'$compileProvider',
 			function($httpProvider, $compileProvider){
 				
+				/*
 				var elementsList = $();
 				var showMessage = function(content, cl, time){
 					$('<div/>')
@@ -32,6 +33,11 @@ angular.module('ErrorResponse.Service', [])
 						.appendTo(elementsList)
 						.text(content);
 				};
+				*/
+				
+				
+				//model variable...
+				var httpMessages = [];
 				
 				$httpProvider.responseInterceptors.push(['$q', function($q) {
 				
@@ -40,8 +46,33 @@ angular.module('ErrorResponse.Service', [])
 						return promise.then(
 							function(successResponse) {
 								
-								if (successResponse.config.method.toUpperCase() != 'GET'){
-									showMessage('Success', 'successMessage', 5000);
+								//we only want to show anything that wasn't a GET based request
+								//these allow you show messages, you don't have to show these types though (because usually not required)
+								switch(successResponse.config.method.toUpperCase()){
+									case 'GET':
+										httpMessages.push({
+											message: 'Successfully Received',
+											type: 'success'
+										});
+										break;
+									case 'POST':
+										httpMessages.push({
+											message: 'Successfully Posted',
+											type: 'success'
+										});
+										break;
+									case 'PUT':
+										httpMessages.push({
+											message: 'Successfully Updated',
+											type: 'success'
+										});
+										break;
+									case 'DELETE':
+										httpMessages.push({
+											message: 'Sucessfully Deleted',
+											type: 'success'
+										});
+										break;
 								}
 								
 								return successResponse;
@@ -49,21 +80,50 @@ angular.module('ErrorResponse.Service', [])
 							},
 							function(failureResponse) {
 							
-								switch (failureResponse.status) {
-									case 401:
-										showMessage('Wrong usename or password', 'errorMessage', 20000);
+								//console.log(failureResponse);
+								
+								switch(failureResponse.status){
+									case 400: //show validation error messages then!
+										httpMessages.push({
+											message: 'Validation failed, try tweaking your submission.',
+											type: 'failure'
+										});
 										break;
-									case 403:
-										showMessage('You don\'t have the right to do this', 'errorMessage', 20000);
+									case 401: //for ionauth authentication, will need to redirect to login screen, or modal box
+										httpMessages.push({
+											message: 'Unauthorised request, try logging in.',
+											type: 'failure'
+										});
+										break;
+									case 403: //returned by server for resources the user should not be able to access directly
+										httpMessages.push({
+											message: 'You can\'t access this.',
+											type: 'failure'
+										});
 										break;
 									case 404:
-										showMessage('Sorry nothing happened!', 'errorMessage', 20000);
+										httpMessages.push({
+											message: '404, sorry could not find what you were looking for.',
+											type: 'failure'
+										});
+										break;
+									case 405:
+										httpMessages.push({
+											message: 'The requested method was incompatible with the requested resource.',
+											type: 'failure'
+										});
 										break;
 									case 500:
-										showMessage('Server internal error: ' + failureResponse.data, 'errorMessage', 20000);
+										httpMessages.push({
+											message: 'There was a server error, try again later, or contact the owners.',
+											type: 'failure'
+										});
 										break;
 									default:
-										showMessage('Error ' + failureResponse.status + ': ' + failureResponse.data, 'errorMessage', 20000);
+										httpMessages.push({
+											message: failureResponse.status + ' General error processing the request',
+											type: 'failure'
+										});
 								}
 								
 								return $q.reject(failureResponse);
@@ -75,18 +135,30 @@ angular.module('ErrorResponse.Service', [])
 					
 				}]);
 				
-				$compileProvider.directive('appMessages', function() {
-				
-					var directiveDefinitionObject = {
-						link: function(scope, element, attrs) {
-						
-							//pushes this element into the elementsList, which is a jQuery object, when that object gets updated, there's a direct binding to the new stuff
-							elementsList.push(element);
-						
-						}
-					};
+				$compileProvider.directive('httpMessages', function() {
 					
-					return directiveDefinitionObject;
+					return {
+					
+						link: function(scope, element, attrs){
+							
+							//binding the httpMessages to the scope of the directive
+							scope.httpMessages = httpMessages;
+							
+							scope.$watch(
+								function(){
+									//console.log(httpMessages);
+									return httpMessages;
+								},
+								function(newValue, oldValue){
+									console.log(newValue, 'NEW VALUE');
+									console.log(oldValue, 'OLD VALUE');
+									element.fadeIn('fast').delay(2000).fadeOut('slow');
+								}
+							);
+							
+						}
+					
+					};
 					
 				});
 				

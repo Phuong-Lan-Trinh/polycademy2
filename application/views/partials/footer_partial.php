@@ -36,7 +36,11 @@
 		</footer>
 		
 		<!-- XHR Messages other than GET-->
-		<div class="messagesList" app-messages></div>
+		<div class="http_messages" http-messages>
+			<ul>
+				<li ng-repeat="httpmessage in httpMessages">{{httpmessage.message}}</li>
+			</ul>
+		</div>
 		
 		<!-- AJAX Loader Screen -->
 		<div class="ajax_loader"></div>
