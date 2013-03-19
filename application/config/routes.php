@@ -72,13 +72,6 @@ Pigeon::map(function($r){
 	//Route all API requests to the correct controller/method
 	$r->route('api', false, function($r){
 		
-		//phones resource RESTFUL AS SHIT!
-		$r->get('phones', 'phones/index');
-		$r->get('phones/(:any)', 'phones/show/$1');
-		$r->post('phones', 'phones/create');
-		$r->put('phones/(:any)', 'phones/update/$1');
-		$r->delete('phones/(:any)', 'phones/delete/$1');
-		
 		//courses resource, we put in and acquire new courses, so this is where we would setup dates and stuff
 		//each 11 weeks course constitute a subcourse
 		//there could different types!

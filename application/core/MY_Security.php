@@ -6,7 +6,7 @@ class MY_Security extends CI_Security{
 	//verifying on POST and PUT and DELETE
 	public function csrf_verify(){
 		
-		//If it is GET, ignore the rest
+		//If it is GET, ignore the rest Watch out for CORS support!, You may need to let OPTIONS go through to!
 		if(strtoupper($_SERVER['REQUEST_METHOD']) == 'GET'){
 			return $this->csrf_set_cookie();
 		}
