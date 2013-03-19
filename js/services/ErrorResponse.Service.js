@@ -9,6 +9,9 @@
 //5. Messages can be acquired from the response itself! Use error variable... (Actually don't use that, use your own, decouple the client from the server in this case!)
 //6. Change the HTML so it's applied like an alert box, but one which appears and fades away. Up on top of the UI... (overlayed on top), AJAX loading always happens first, and then error box message
 //7. Remember some messages will be reshown as part of validation...? So these are the temporary messages!
+//MAKE A FADE DIRECTIVE ON THE ITEM THATS BEING ADDED, this means as soon as it exists, it runs a fadein, and later on after a delay can destroy itself...
+//OR you can watch the length of the element, and when the length changes, bind a fadein then fadeout and destroy to its children
+//OR watch the element add itself to it, and then bind fade in then fadeout then destroy
 
 /**
  * Response Handler for Error Codes across all HTTP requests to show an alert box!
