@@ -1,11 +1,17 @@
 'use strict';
 
-angular.module('Footer.Controllers', []);
+angular.module('Footer.Controllers', ['ErrorResponse.Service']);
 
 angular.module('Footer.Controllers')
 	.controller('FooterCtrl', [
 		'$scope',
-		function($scope){
+		'httpMessages',
+		function($scope, httpMessages){
 		
+			//we want only error messages
+			//console.log(httpMessages);
+			//for(var i = 0; i < http
+		
+			$scope.httpMessages = httpMessages;
 		}
 	]);

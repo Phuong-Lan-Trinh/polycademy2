@@ -33,14 +33,13 @@
 				</ul>
 				<p class="copyright"><?=$copyright?></p>
 			</div>
+			
+			<!-- XHR Messages other than GET-->
+			<div class="http_messages">
+				<em class="http_message" ng-repeat="httpmessage in httpMessages" fade-in-out-dir="2000">{{httpmessage.message}}</em>
+			</div>
+			
 		</footer>
-		
-		<!-- XHR Messages other than GET-->
-		<div class="http_messages" http-messages>
-			<ul>
-				<li ng-repeat="httpmessage in httpMessages">{{httpmessage.message}}</li>
-			</ul>
-		</div>
 		
 		<!-- AJAX Loader Screen -->
 		<div class="ajax_loader"></div>
@@ -83,7 +82,8 @@
 		<script src="js/services/Courses.Service.js"></script>
 		
 		<!-- Reusable Directives -->
-		<script src="js/directives/Utilities.Directive.js"></script>
+		<script src="js/directives/EqualiseHeight.Directive.js"></script>
+		<script src="js/directives/Fade.Directive.js"></script>
 		
 		<!-- Reusable Filters -->
 		<script src="js/filters/Interpolate.Filter.js"></script>

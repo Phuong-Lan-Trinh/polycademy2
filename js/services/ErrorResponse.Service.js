@@ -1,46 +1,20 @@
 'use strict';
 
-//REFACTOR PLAN
-
-//1. Setup a model variable outside the httpProvider and compileProvider
-//2. Inside the interceptor, push error messages to the model variable
-//3. Inside directive, take the model variable, and bind it to the scope.
-//4. Inside the HTML, take the model and do an ng-repeat (apply ng-show) on that model too!
-//5. Messages can be acquired from the response itself! Use error variable... (Actually don't use that, use your own, decouple the client from the server in this case!)
-//6. Change the HTML so it's applied like an alert box, but one which appears and fades away. Up on top of the UI... (overlayed on top), AJAX loading always happens first, and then error box message
-//7. Remember some messages will be reshown as part of validation...? So these are the temporary messages!
-//MAKE A FADE DIRECTIVE ON THE ITEM THATS BEING ADDED, this means as soon as it exists, it runs a fadein, and later on after a delay can destroy itself...
-//OR you can watch the length of the element, and when the length changes, bind a fadein then fadeout and destroy to its children
-//OR watch the element add itself to it, and then bind fade in then fadeout then destroy
-
 /**
  * Response Handler for Error Codes across all HTTP requests to show an alert box!
  */
 angular.module('ErrorResponse.Service', [])
 	.config(
 		[
+			'$provide',
 			'$httpProvider',
-			'$compileProvider',
-			function($httpProvider, $compileProvider){
-				
-				/*
-				var elementsList = $();
-				var showMessage = function(content, cl, time){
-					$('<div/>')
-						.addClass('message')
-						.addClass(cl)
-						.hide()
-						.fadeIn('fast')
-						.delay(time)
-						.fadeOut('fast', function(){ $(this).remove(); })
-						.appendTo(elementsList)
-						.text(content);
-				};
-				*/
-				
+			function($provide, $httpProvider){
 				
 				//model variable...
 				var httpMessages = [];
+				
+				//bind the httpMessages array to the httpMessages key so it can be dependency injected
+				$provide.value('httpMessages', httpMessages);
 				
 				$httpProvider.responseInterceptors.push(['$q', function($q) {
 				
@@ -51,13 +25,14 @@ angular.module('ErrorResponse.Service', [])
 								
 								//we only want to show anything that wasn't a GET based request
 								//these allow you show messages, you don't have to show these types though (because usually not required)
+								
 								switch(successResponse.config.method.toUpperCase()){
-									case 'GET':
-										httpMessages.push({
-											message: 'Successfully Received',
-											type: 'success'
-										});
-										break;
+									// case 'GET':
+										// httpMessages.push({
+											// message: 'Successfully Received',
+											// type: 'success'
+										// });
+										// break;
 									case 'POST':
 										httpMessages.push({
 											message: 'Successfully Posted',
@@ -78,12 +53,11 @@ angular.module('ErrorResponse.Service', [])
 										break;
 								}
 								
+								
 								return successResponse;
 
 							},
 							function(failureResponse) {
-							
-								//console.log(failureResponse);
 								
 								switch(failureResponse.status){
 									case 400: //show validation error messages then!
@@ -137,33 +111,6 @@ angular.module('ErrorResponse.Service', [])
 					};
 					
 				}]);
-				
-				$compileProvider.directive('httpMessages', function() {
-					
-					return {
-					
-						link: function(scope, element, attrs){
-							
-							//binding the httpMessages to the scope of the directive
-							scope.httpMessages = httpMessages;
-							
-							scope.$watch(
-								function(){
-									//console.log(httpMessages);
-									return httpMessages;
-								},
-								function(newValue, oldValue){
-									console.log(newValue, 'NEW VALUE');
-									console.log(oldValue, 'OLD VALUE');
-									element.fadeIn('fast').delay(2000).fadeOut('slow');
-								}
-							);
-							
-						}
-					
-					};
-					
-				});
 				
 			}
 		]

@@ -30,7 +30,8 @@ angular.module('Services', [
 ]);
 //Define all shared directives (UI Logic)
 angular.module('Directives', [
-	'Utilities.Directive'
+	'EqualiseHeight.Directive',
+	'Fade.Directive'
 ]);
 //Define all shared filters (UI Filtering)
 angular.module('Filters', [

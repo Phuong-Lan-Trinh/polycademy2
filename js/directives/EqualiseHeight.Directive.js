@@ -1,14 +1,13 @@
 'use strict';
 
-angular.module('Utilities.Directive', []);
+angular.module('EqualiseHeight.Directive', []);
 
 /**
  * Equalise Heights
- * equaliseHeightsDir => equalise-heights-dir
  * 
  * @param string jQuery Selector of which to equalise
  */
-angular.module('Utilities.Directive')
+angular.module('EqualiseHeight.Directive')
 	.directive('equaliseHeightsDir', [ //DIRECTIVES must have camelcased names
 		//this function is a DI factory, we can inject dependencies here...
 		function(){
